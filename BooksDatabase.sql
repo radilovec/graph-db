@@ -10,7 +10,7 @@ GO
 USE BooksDatabase;
 GO
 
--- Òàáëèöû óçëîâ
+-- Ã’Ã Ã¡Ã«Ã¨Ã¶Ã» Ã³Ã§Ã«Ã®Ã¢
 CREATE TABLE Author
 (
     id INT NOT NULL PRIMARY KEY,
@@ -31,14 +31,14 @@ CREATE TABLE Book
     publisher_id INT NOT NULL
 ) AS NODE;
 
--- Òàáëèöû ð¸áåð
+-- Ã’Ã Ã¡Ã«Ã¨Ã¶Ã» Ã°Â¸Ã¡Ã¥Ã°
 CREATE TABLE FamiliarWith AS EDGE;
 
 CREATE TABLE WrittenBy AS EDGE;
 
 CREATE TABLE PublishedBy AS EDGE;
 
--- Äîáàâèì îãðàíè÷åíèÿ
+-- Ã„Ã®Ã¡Ã Ã¢Ã¨Ã¬ Ã®Ã£Ã°Ã Ã­Ã¨Ã·Ã¥Ã­Ã¨Ã¿
 ALTER TABLE FamiliarWith
 ADD CONSTRAINT EC_FamiliarWith CONNECTION (Author TO Author);
 
@@ -49,44 +49,44 @@ ALTER TABLE PublishedBy
 ADD CONSTRAINT EC_PublishedBy CONNECTION (Book TO Publisher);
 GO
 
--- Çàïîëíåíèå òàáëèö óçëîâ
+-- Ã‡Ã Ã¯Ã®Ã«Ã­Ã¥Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶ Ã³Ã§Ã«Ã®Ã¢
 INSERT INTO Author (id, name)
-VALUES (1, N'Òîëñòîé'),
-       (2, N'Äîñòîåâñêèé'),
-       (3, N'Ïóøêèí'),
-       (4, N'Ãîãîëü'),
-       (5, N'×åõîâ'),
-       (6, N'Òóðãåíåâ'),
-       (7, N'Ãåòå'),
-       (8, N'Øåêñïèð'),
-       (9, N'Ìàÿêîâñêèé'),
-       (10, N'Ãþãî');
+VALUES (1, N'Ã’Ã®Ã«Ã±Ã²Ã®Ã©'),
+       (2, N'Ã„Ã®Ã±Ã²Ã®Ã¥Ã¢Ã±ÃªÃ¨Ã©'),
+       (3, N'ÃÃ³Ã¸ÃªÃ¨Ã­'),
+       (4, N'ÃƒÃ®Ã£Ã®Ã«Ã¼'),
+       (5, N'Ã—Ã¥ÃµÃ®Ã¢'),
+       (6, N'Ã’Ã³Ã°Ã£Ã¥Ã­Ã¥Ã¢'),
+       (7, N'ÃƒÃ¥Ã²Ã¥'),
+       (8, N'Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°'),
+       (9, N'ÃŒÃ Ã¿ÃªÃ®Ã¢Ã±ÃªÃ¨Ã©'),
+       (10, N'ÃƒÃ¾Ã£Ã®');
 
 INSERT INTO Publisher (id, name)
-VALUES (1, N'Ýêñìî'),
-       (2, N'ÀÑÒ'),
+VALUES (1, N'ÃÃªÃ±Ã¬Ã®'),
+       (2, N'Ã€Ã‘Ã’'),
        (3, N'ACT'),
-       (4, N'Ðèïîë'),
-       (5, N'Ïðîñâåùåíèå'),
-       (6, N'Ïèòåð'),
-       (7, N'Âèëüÿìñ'),
-       (8, N'Ïàëåÿ'),
-       (9, N'Àìôîðà'),
-       (10, N'Ìîëîäàÿ ãâàðäèÿ');
+       (4, N'ÃÃ¨Ã¯Ã®Ã«'),
+       (5, N'ÃÃ°Ã®Ã±Ã¢Ã¥Ã¹Ã¥Ã­Ã¨Ã¥'),
+       (6, N'ÃÃ¨Ã²Ã¥Ã°'),
+       (7, N'Ã‚Ã¨Ã«Ã¼Ã¿Ã¬Ã±'),
+       (8, N'ÃÃ Ã«Ã¥Ã¿'),
+       (9, N'Ã€Ã¬Ã´Ã®Ã°Ã '),
+       (10, N'ÃŒÃ®Ã«Ã®Ã¤Ã Ã¿ Ã£Ã¢Ã Ã°Ã¤Ã¨Ã¿');
 
 INSERT INTO Book (id, title, author_id, publisher_id)
-VALUES (1, N'Âîéíà è ìèð', 1, 1),
-       (2, N'Ïðåñòóïëåíèå è íàêàçàíèå', 2, 2),
-       (3, N'Åâãåíèé Îíåãèí', 3, 3),
-       (4, N'Ìåðòâûå äóøè', 4, 4),
-       (5, N'Äàìà ñ ñîáà÷êîé', 5, 5),
-       (6, N'Îòöû è äåòè', 6, 6),
-       (7, N'Ôàóñò', 7, 7),
-       (8, N'Ãàìëåò', 8, 8),
-       (9, N'Îáëîìîâ', 6, 9),
-       (10, N'Îòåëëî', 8, 10);
+VALUES (1, N'Ã‚Ã®Ã©Ã­Ã  Ã¨ Ã¬Ã¨Ã°', 1, 1),
+       (2, N'ÃÃ°Ã¥Ã±Ã²Ã³Ã¯Ã«Ã¥Ã­Ã¨Ã¥ Ã¨ Ã­Ã ÃªÃ Ã§Ã Ã­Ã¨Ã¥', 2, 2),
+       (3, N'Ã…Ã¢Ã£Ã¥Ã­Ã¨Ã© ÃŽÃ­Ã¥Ã£Ã¨Ã­', 3, 3),
+       (4, N'ÃŒÃ¥Ã°Ã²Ã¢Ã»Ã¥ Ã¤Ã³Ã¸Ã¨', 4, 4),
+       (5, N'Ã„Ã Ã¬Ã  Ã± Ã±Ã®Ã¡Ã Ã·ÃªÃ®Ã©', 5, 5),
+       (6, N'ÃŽÃ²Ã¶Ã» Ã¨ Ã¤Ã¥Ã²Ã¨', 6, 6),
+       (7, N'Ã”Ã Ã³Ã±Ã²', 7, 7),
+       (8, N'ÃƒÃ Ã¬Ã«Ã¥Ã²', 8, 8),
+       (9, N'ÃŽÃ¡Ã«Ã®Ã¬Ã®Ã¢', 6, 9),
+       (10, N'ÃŽÃ²Ã¥Ã«Ã«Ã®', 8, 10);
 
--- Çàïîëíåíèå òàáëèö ð¸áåð
+-- Ã‡Ã Ã¯Ã®Ã«Ã­Ã¥Ã­Ã¨Ã¥ Ã²Ã Ã¡Ã«Ã¨Ã¶ Ã°Â¸Ã¡Ã¥Ã°
 INSERT INTO FamiliarWith ($from_id, $to_id)
 VALUES ((SELECT $node_id FROM Author WHERE id = 1),
         (SELECT $node_id FROM Author WHERE id = 2)),
@@ -134,9 +134,9 @@ VALUES ((SELECT $node_id FROM Book WHERE id = 1), (SELECT $node_id FROM Publishe
 	   ((SELECT $node_id FROM Book WHERE id = 10), (SELECT $node_id FROM Publisher WHERE id = 10));
 
 
--- Çàïðîñû ñ èñïîëüçîâàíèåì MATCH
+-- Ã‡Ã Ã¯Ã°Ã®Ã±Ã» Ã± Ã¨Ã±Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥Ã¬ MATCH
 
--- 1. Íàéòè èçäàòåëüñòâî, êîòîðîå èçäàëî êíèãó îïðåäåë¸ííîãî àâòîðà (íàïðèìåð, "Òîëñòîé")
+-- 1. ÃÃ Ã©Ã²Ã¨ Ã¨Ã§Ã¤Ã Ã²Ã¥Ã«Ã¼Ã±Ã²Ã¢Ã®, ÃªÃ®Ã²Ã®Ã°Ã®Ã¥ Ã¨Ã§Ã¤Ã Ã«Ã® ÃªÃ­Ã¨Ã£Ã³ Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Â¸Ã­Ã­Ã®Ã£Ã® Ã Ã¢Ã²Ã®Ã°Ã  (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, "Ã’Ã®Ã«Ã±Ã²Ã®Ã©")
 SELECT Publisher.name AS PublisherName
 FROM Author
 , WrittenBy
@@ -144,25 +144,25 @@ FROM Author
 , PublishedBy
 , Publisher
 WHERE MATCH(Author-(WrittenBy)->Book-(PublishedBy)->Publisher)
-AND Author.name = N'Òîëñòîé';
+AND Author.name = N'Ã’Ã®Ã«Ã±Ã²Ã®Ã©';
 
--- 2. Íàéòè àâòîðîâ, êîòîðûå çíàêîìû ñ îïðåäåë¸ííûì àâòîðîì (íàïðèìåð, "Òîëñòîé")
+-- 2. ÃÃ Ã©Ã²Ã¨ Ã Ã¢Ã²Ã®Ã°Ã®Ã¢, ÃªÃ®Ã²Ã®Ã°Ã»Ã¥ Ã§Ã­Ã ÃªÃ®Ã¬Ã» Ã± Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Â¸Ã­Ã­Ã»Ã¬ Ã Ã¢Ã²Ã®Ã°Ã®Ã¬ (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, "Ã’Ã®Ã«Ã±Ã²Ã®Ã©")
 SELECT Author2.name AS AuthorName
 FROM Author AS Author1
 , FamiliarWith
 , Author AS Author2
 WHERE MATCH(Author1-(FamiliarWith)->Author2)
-AND Author1.name = N'Òîëñòîé';
+AND Author1.name = N'Ã’Ã®Ã«Ã±Ã²Ã®Ã©';
 
--- 3. Íàéòè êíèãó, êîòîðóþ íàïèñàë îïðåäåë¸ííûé àâòîð (íàïðèìåð, "Äîñòîåâñêèé")
+-- 3. ÃÃ Ã©Ã²Ã¨ ÃªÃ­Ã¨Ã£Ã³, ÃªÃ®Ã²Ã®Ã°Ã³Ã¾ Ã­Ã Ã¯Ã¨Ã±Ã Ã« Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Â¸Ã­Ã­Ã»Ã© Ã Ã¢Ã²Ã®Ã° (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, "Ã„Ã®Ã±Ã²Ã®Ã¥Ã¢Ã±ÃªÃ¨Ã©")
 SELECT Book.title AS BookTitle
 FROM Author
 , WrittenBy
 , Book
 WHERE MATCH(Author-(WrittenBy)->Book)
-AND Author.name = N'Äîñòîåâñêèé';
+AND Author.name = N'Ã„Ã®Ã±Ã²Ã®Ã¥Ã¢Ã±ÃªÃ¨Ã©';
 
--- 4. Íàéòè èçäàòåëüñòâà, êîòîðûå èçäàëè êíèãè, íàïèñàííûå àâòîðîì îïðåäåë¸ííîãî æàíðà (íàïðèìåð, êëàññèêà)
+-- 4. ÃÃ Ã©Ã²Ã¨ Ã¨Ã§Ã¤Ã Ã²Ã¥Ã«Ã¼Ã±Ã²Ã¢Ã , ÃªÃ®Ã²Ã®Ã°Ã»Ã¥ Ã¨Ã§Ã¤Ã Ã«Ã¨ ÃªÃ­Ã¨Ã£Ã¨, Ã­Ã Ã¯Ã¨Ã±Ã Ã­Ã­Ã»Ã¥ Ã Ã¢Ã²Ã®Ã°Ã®Ã¬ Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Â¸Ã­Ã­Ã®Ã£Ã® Ã¦Ã Ã­Ã°Ã  (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, ÃªÃ«Ã Ã±Ã±Ã¨ÃªÃ )
 SELECT DISTINCT Publisher.name AS PublisherName
 FROM Author
 , WrittenBy
@@ -170,10 +170,10 @@ FROM Author
 , PublishedBy
 , Publisher
 WHERE MATCH(Author-(WrittenBy)->Book-(PublishedBy)->Publisher)
-AND Book.title IN ('Âîéíà è ìèð', 'Ïðåñòóïëåíèå è íàêàçàíèå', 'Åâãåíèé Îíåãèí', 'Ìåðòâûå äóøè', 'Äàìà ñ ñîáà÷êîé', 'Îòöû è äåòè', 'Ôàóñò', 'Ãàìëåò', 'Îáëîìîâ', 'Îòåëëî')
-AND Author.name IN ('Òîëñòîé', 'Äîñòîåâñêèé', 'Ïóøêèí', 'Ãîãîëü', '×åõîâ', 'Òóðãåíåâ', 'Ãåòå', 'Øåêñïèð', 'Ìàÿêîâñêèé', 'Ãþãî');
+AND Book.title IN ('Ã‚Ã®Ã©Ã­Ã  Ã¨ Ã¬Ã¨Ã°', 'ÃÃ°Ã¥Ã±Ã²Ã³Ã¯Ã«Ã¥Ã­Ã¨Ã¥ Ã¨ Ã­Ã ÃªÃ Ã§Ã Ã­Ã¨Ã¥', 'Ã…Ã¢Ã£Ã¥Ã­Ã¨Ã© ÃŽÃ­Ã¥Ã£Ã¨Ã­', 'ÃŒÃ¥Ã°Ã²Ã¢Ã»Ã¥ Ã¤Ã³Ã¸Ã¨', 'Ã„Ã Ã¬Ã  Ã± Ã±Ã®Ã¡Ã Ã·ÃªÃ®Ã©', 'ÃŽÃ²Ã¶Ã» Ã¨ Ã¤Ã¥Ã²Ã¨', 'Ã”Ã Ã³Ã±Ã²', 'ÃƒÃ Ã¬Ã«Ã¥Ã²', 'ÃŽÃ¡Ã«Ã®Ã¬Ã®Ã¢', 'ÃŽÃ²Ã¥Ã«Ã«Ã®')
+AND Author.name IN ('Ã’Ã®Ã«Ã±Ã²Ã®Ã©', 'Ã„Ã®Ã±Ã²Ã®Ã¥Ã¢Ã±ÃªÃ¨Ã©', 'ÃÃ³Ã¸ÃªÃ¨Ã­', 'ÃƒÃ®Ã£Ã®Ã«Ã¼', 'Ã—Ã¥ÃµÃ®Ã¢', 'Ã’Ã³Ã°Ã£Ã¥Ã­Ã¥Ã¢', 'ÃƒÃ¥Ã²Ã¥', 'Ã˜Ã¥ÃªÃ±Ã¯Ã¨Ã°', 'ÃŒÃ Ã¿ÃªÃ®Ã¢Ã±ÃªÃ¨Ã©', 'ÃƒÃ¾Ã£Ã®');
 
--- 5. Íàéòè àâòîðîâ, êîòîðûå íàïèñàëè êíèãè äëÿ îïðåäåë¸ííîãî èçäàòåëüñòâà (íàïðèìåð, Ýêñìî)
+-- 5. ÃÃ Ã©Ã²Ã¨ Ã Ã¢Ã²Ã®Ã°Ã®Ã¢, ÃªÃ®Ã²Ã®Ã°Ã»Ã¥ Ã­Ã Ã¯Ã¨Ã±Ã Ã«Ã¨ ÃªÃ­Ã¨Ã£Ã¨ Ã¤Ã«Ã¿ Ã®Ã¯Ã°Ã¥Ã¤Ã¥Ã«Â¸Ã­Ã­Ã®Ã£Ã® Ã¨Ã§Ã¤Ã Ã²Ã¥Ã«Ã¼Ã±Ã²Ã¢Ã  (Ã­Ã Ã¯Ã°Ã¨Ã¬Ã¥Ã°, ÃÃªÃ±Ã¬Ã®)
 SELECT DISTINCT Author.name AS AuthorName
 FROM Author
 , WrittenBy
@@ -181,12 +181,26 @@ FROM Author
 , PublishedBy
 , Publisher
 WHERE MATCH(Author-(WrittenBy)->Book-(PublishedBy)->Publisher)
-AND Publisher.name = N'Ýêñìî';
+AND Publisher.name = N'ÃÃªÃ±Ã¬Ã®';
 
 
+--1. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµÑ… Ð°Ð²Ñ‚Ð¾Ñ€Ð¾Ð², Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ð·Ð½Ð°ÐºÐ¾Ð¼Ð¸Ñ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾Ñ€ Ñ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð¼ 7 (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, "Ð“ÐµÑ‚Ðµ").
+SELECT Author1.name AS AuthorName,
+       STRING_AGG(Author2.name, '->') WITHIN GROUP (GRAPH PATH) AS Friends
+FROM Author AS Author1,
+     FamiliarWith FOR PATH AS fw,
+     Author for path AS Author2
+WHERE MATCH(SHORTEST_PATH(Author1(-(fw)->Author2)+))
+      AND Author1.id = 7;
 
-
-
+--2. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµÑ… Ð°Ð²Ñ‚Ð¾Ñ€Ð¾Ð², Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ð·Ð½Ð°ÐºÐ¾Ð¼Ð¸Ñ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾Ñ€ Ñ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð¼ 7 (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, "Ð“ÐµÑ‚Ðµ") Ð·Ð° 3 ÑˆÐ°Ð³Ð°.
+SELECT Author1.name AS AuthorName,
+       STRING_AGG(Author2.name, '->') WITHIN GROUP (GRAPH PATH) AS Friends
+FROM Author AS Author1,
+     FamiliarWith FOR PATH AS fw,
+     Author FOR PATH AS Author2
+WHERE MATCH(SHORTEST_PATH(Author1(-(fw)->Author2){1,3}))
+      AND Author1.id = 7;
 
 
 
